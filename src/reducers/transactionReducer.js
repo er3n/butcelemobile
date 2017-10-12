@@ -1,4 +1,4 @@
-import { FETCH_DATA_PENDING, FETCH_DATA_FULFILLED, FETCH_DATA_REJECTED } from '../constants'
+import { FETCH_TRANSACTIONS_PENDING, FETCH_TRANSACTIONS_FULFILLED, FETCH_TRANSACTIONS_REJECTED } from '../constants'
 const initialState = {
     data: [],
     dataFetched: false,
@@ -6,21 +6,20 @@ const initialState = {
     error: false
 }
 
-export default function transactionsReducer (state = initialState, action) {
+export default function transactionReducer (state = initialState, action) {
     switch (action.type) {
-        case FETCH_DATA_PENDING:
+        case FETCH_TRANSACTIONS_PENDING:
             return {
                 ...state,
-                data: [],
                 isFetching: true
             }
-        case FETCH_DATA_FULFILLED:
+        case FETCH_TRANSACTIONS_FULFILLED:
             return {
                 ...state,
                 isFetching: false,
                 data: action.payload
             }
-        case FETCH_DATA_REJECTED:
+        case FETCH_TRANSACTIONS_REJECTED:
             return {
                 ...state,
                 isFetching: false,
